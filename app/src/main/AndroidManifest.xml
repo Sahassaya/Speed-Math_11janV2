@@ -34,7 +34,8 @@
         <activity android:name=".Play7Activity" />
         <activity android:name=".Play8Activity" />
         <activity android:name=".Play2" />
-        <activity android:name=".play3"></activity>
+        <activity android:name=".play3" />
+        <activity android:name=".SuccessGame"></activity>
     </application>
 
 </manifest>
