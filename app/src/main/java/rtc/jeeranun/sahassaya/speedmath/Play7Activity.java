@@ -1,6 +1,7 @@
 package rtc.jeeranun.sahassaya.speedmath;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -96,14 +97,14 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
 
     private void playController() {
 
-        firstAnInt = random.nextInt(11);
+        firstAnInt = random.nextInt(101);
         secondAnInt = random.nextInt(10);
-        answerAnInt = firstAnInt + secondAnInt; // นี่คือคำตอบที่ถูกต้อง
+        answerAnInt = firstAnInt * secondAnInt; // นี่คือคำตอบที่ถูกต้อง
         trueChoiceAnInt = random.nextInt(4) + 1;
         Log.d("4janV1", "ข้อที่ถูก ==> " + trueChoiceAnInt);
         timeAnInt = 30;
         //Change Question
-        questionTextView.setText(Integer.toString(firstAnInt) + " + " +
+        questionTextView.setText(Integer.toString(firstAnInt) + " x " +
                 Integer.toString(secondAnInt) + " = ?");
 
         //Change Choice
@@ -161,6 +162,15 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
 
         playController();
 
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.phonton1);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+
     }   // onClick
 
     private void checkAnswer(int intChoice) {
@@ -193,7 +203,7 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
             imageViews[3].setVisibility(View.VISIBLE);
         } else if (scoreAnInt <15) {
             imageViews[4].setVisibility(View.VISIBLE);
-        } else if (scoreAnInt < 18) {
+        } else if (scoreAnInt < 20) {
             imageViews[5].setVisibility(View.VISIBLE);
         } else {
             imageViews[6].setVisibility(View.VISIBLE);

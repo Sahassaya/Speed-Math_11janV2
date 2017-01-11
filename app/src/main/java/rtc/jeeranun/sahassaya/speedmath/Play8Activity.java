@@ -1,6 +1,7 @@
 package rtc.jeeranun.sahassaya.speedmath;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,7 @@ public class Play8Activity extends AppCompatActivity implements View.OnClickList
     private ImageView heart1ImageView,heart2ImageView, heart3ImageView;
     private  int heardAnInt = 0;
     private boolean aBoolean = true;
+    private double answerADouble;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,14 +98,18 @@ public class Play8Activity extends AppCompatActivity implements View.OnClickList
 
     private void playController() {
 
-        firstAnInt = random.nextInt(11);
-        secondAnInt = random.nextInt(10);
-        answerAnInt = firstAnInt + secondAnInt; // นี่คือคำตอบที่ถูกต้อง
+        firstAnInt = random.nextInt(101);
+        double douFirst = firstAnInt;
+
+        secondAnInt = random.nextInt(10) + 1;
+        double douSecond = secondAnInt;
+
+        answerADouble = douFirst / douSecond; // นี่คือคำตอบที่ถูกต้อง
         trueChoiceAnInt = random.nextInt(4) + 1;
         Log.d("4janV1", "ข้อที่ถูก ==> " + trueChoiceAnInt);
         timeAnInt = 30;
         //Change Question
-        questionTextView.setText(Integer.toString(firstAnInt) + " + " +
+        questionTextView.setText(Integer.toString(firstAnInt) + " / " +
                 Integer.toString(secondAnInt) + " = ?");
 
         //Change Choice
@@ -113,28 +119,28 @@ public class Play8Activity extends AppCompatActivity implements View.OnClickList
         }
 
         //สร้าง ช้อย ใกล้เคียง
-        textViews[0].setText(Integer.toString(answerAnInt + 10));
-        textViews[1].setText(Integer.toString(answerAnInt - 10));
-        textViews[2].setText(Integer.toString(answerAnInt - 2));
-        textViews[3].setText(Integer.toString(answerAnInt + 2));
+        textViews[0].setText(Double.toString(answerADouble + 10.0));
+        textViews[1].setText(Double.toString(answerADouble - 10.0));
+        textViews[2].setText(Double.toString(answerADouble - 2.0));
+        textViews[3].setText(Double.toString(answerADouble + 2));
 
 
 
         switch (trueChoiceAnInt) {
             case 1:
-                ch1TextView.setText(Integer.toString(answerAnInt));
+                ch1TextView.setText(Double.toString(answerADouble));
                 break;
             case 2:
-                ch2TextView.setText(Integer.toString(answerAnInt));
+                ch2TextView.setText(Double.toString(answerADouble));
                 break;
             case 3:
-                ch3TextView.setText(Integer.toString(answerAnInt));
+                ch3TextView.setText(Double.toString(answerADouble));
                 break;
             case 4:
-                ch4TextView.setText(Integer.toString(answerAnInt));
+                ch4TextView.setText(Double.toString(answerADouble));
                 break;
             default:
-                ch1TextView.setText(Integer.toString(answerAnInt));
+                ch1TextView.setText(Double.toString(answerADouble));
                 break;
         }   // switch
 
@@ -145,29 +151,38 @@ public class Play8Activity extends AppCompatActivity implements View.OnClickList
 
 
         switch (view.getId()) {
-            case R.id.textView3:
-                checkAnswer(Integer.parseInt(ch1TextView.getText().toString()));
+            case R.id.textView52:
+                checkAnswer(Double.parseDouble(ch1TextView.getText().toString()));
                 break;
-            case R.id.textView4:
-                checkAnswer(Integer.parseInt(ch2TextView.getText().toString()));
+            case R.id.textView53:
+                checkAnswer(Double.parseDouble(ch2TextView.getText().toString()));
                 break;
-            case R.id.textView5:
-                checkAnswer(Integer.parseInt(ch3TextView.getText().toString()));
+            case R.id.textView54:
+                checkAnswer(Double.parseDouble(ch3TextView.getText().toString()));
                 break;
-            case R.id.textView6:
-                checkAnswer(Integer.parseInt(ch4TextView.getText().toString()));
+            case R.id.textView55:
+                checkAnswer(Double.parseDouble(ch4TextView.getText().toString()));
                 break;
         }   // switch
 
         playController();
 
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.phonton1);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+
     }   // onClick
 
-    private void checkAnswer(int intChoice) {
+    private void checkAnswer(Double intChoice) {
         Log.d("3decV1", "You Choose Answer ==> " + intChoice);
 
 
-        if (intChoice == answerAnInt) {
+        if (intChoice == answerADouble) {
             scoreAnInt += 1;
         } else {
             deleteHeard();
@@ -193,7 +208,7 @@ public class Play8Activity extends AppCompatActivity implements View.OnClickList
             imageViews[3].setVisibility(View.VISIBLE);
         } else if (scoreAnInt <15) {
             imageViews[4].setVisibility(View.VISIBLE);
-        } else if (scoreAnInt < 18) {
+        } else if (scoreAnInt < 20) {
             imageViews[5].setVisibility(View.VISIBLE);
         } else {
             imageViews[6].setVisibility(View.VISIBLE);
@@ -201,7 +216,7 @@ public class Play8Activity extends AppCompatActivity implements View.OnClickList
             //เฉพาะกิด
 
             MyAlert myAlert = new MyAlert(Play8Activity.this,
-                    "ผ่านด่านที่ 8", "ยินดีด้วยผ่านด่านที่ 8 แล้ว", Play2Activity.class);
+                    "ผ่านด่านที่ 4", "ยินดีด้วยผ่านด่านที่ 4 แล้ว", SuccessGame.class);
             myAlert.myDialog();
 
         }
