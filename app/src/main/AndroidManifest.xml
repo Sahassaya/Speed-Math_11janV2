@@ -4,12 +4,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/katai"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,15 +27,16 @@
             android:name=".Play2Activity"
             android:screenOrientation="landscape" />
         />
-        <activity android:name=".Play3Activity" />
-        <activity android:name=".Play4Activity" />
-        <activity android:name=".Play5Activity" />
-        <activity android:name=".Play6Activity" />
-        <activity android:name=".Play7Activity" />
-        <activity android:name=".Play8Activity" />
+        <activity android:name=".Play3Activity" android:screenOrientation="landscape"/>
+        <activity android:name=".Play4Activity" android:screenOrientation="landscape"/>
+        <activity android:name=".Play5Activity" android:screenOrientation="landscape"/>
+        <activity android:name=".Play6Activity" android:screenOrientation="landscape"/>
+        <activity android:name=".Play7Activity" android:screenOrientation="landscape"/>
+        <activity android:name=".Play8Activity" android:screenOrientation="landscape"/>
         <activity android:name=".Play2" />
-        <activity android:name=".play3" />
-        <activity android:name=".SuccessGame"></activity>
+
+        <activity android:name=".SuccessGame" android:screenOrientation="landscape"/>
+        <activity android:name=".MainActivity" android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

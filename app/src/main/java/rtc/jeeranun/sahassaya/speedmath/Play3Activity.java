@@ -1,6 +1,7 @@
 package rtc.jeeranun.sahassaya.speedmath;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -160,6 +161,15 @@ public class Play3Activity extends AppCompatActivity implements View.OnClickList
         }   // switch
 
         playController();
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.phonton1);
+        mediaPlayer.start();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
 
     }   // onClick
 
