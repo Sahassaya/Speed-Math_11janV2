@@ -1,9 +1,9 @@
 package rtc.jeeranun.sahassaya.speedmath;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,7 +11,9 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class Play7Activity extends AppCompatActivity implements View.OnClickListener{
+public class Play7Activity extends AppCompatActivity implements View.OnClickListener {
+
+
     //Explicit  master
     //sahassaya
     private TextView questionTextView, ch1TextView, ch2TextView,
@@ -20,7 +22,7 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
     private int firstAnInt, secondAnInt, answerAnInt,
             trueChoiceAnInt, scoreAnInt = 0;
     private int timeAnInt = 30; // นี่คือเวลาลูป
-    private ImageView rabbit1ImageView,rabbit2ImageView,rabbit3ImageView,rabbit4ImageView,rabbit5ImageView;
+    private ImageView rabbit1ImageView,rabbit2ImageView,rabbit3ImageView,rabbit4ImageView,rabbit5ImageView,rabbit6ImageView, rabbit7ImageView;
     private ImageView[] imageViews;
     private ImageView heart1ImageView,heart2ImageView, heart3ImageView;
     private  int heardAnInt = 0;
@@ -30,6 +32,8 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play7);
+
+
         //Setup
         random = new Random();
 
@@ -45,14 +49,15 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
         heart2ImageView = (ImageView) findViewById(R.id.imageView51);
         heart3ImageView = (ImageView) findViewById(R.id.imageView52);
         rabbit1ImageView = (ImageView) findViewById(R.id.imageView53);
-        rabbit2ImageView = (ImageView) findViewById(R.id.imageView54);
-        rabbit3ImageView = (ImageView) findViewById(R.id.imageView55);
-        rabbit4ImageView = (ImageView) findViewById(R.id.imageView56);
-        rabbit5ImageView = (ImageView) findViewById(R.id.imageView57);
-
+        rabbit2ImageView = (ImageView) findViewById(R.id.imageView53sp2);
+        rabbit3ImageView = (ImageView) findViewById(R.id.imageView53sp1);
+        rabbit4ImageView = (ImageView) findViewById(R.id.imageView55);
+        rabbit5ImageView = (ImageView) findViewById(R.id.imageView56);
+        rabbit6ImageView = (ImageView) findViewById(R.id.imageView57);
+        rabbit7ImageView = (ImageView) findViewById(R.id.imageView54);
 
         imageViews = new ImageView[]{rabbit1ImageView,rabbit2ImageView,rabbit3ImageView,
-                rabbit4ImageView,rabbit5ImageView};
+                rabbit4ImageView,rabbit5ImageView,rabbit6ImageView,rabbit7ImageView};
 
 
         //Click Controller
@@ -81,7 +86,9 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                countTime();
+                if (aBoolean) {
+                    countTime();
+                }
             }
         },1000);
 
@@ -89,9 +96,9 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
 
     private void playController() {
 
-        firstAnInt = random.nextInt(100);
-        secondAnInt = random.nextInt(100);
-        answerAnInt = firstAnInt + secondAnInt;
+        firstAnInt = random.nextInt(11);
+        secondAnInt = random.nextInt(10);
+        answerAnInt = firstAnInt + secondAnInt; // นี่คือคำตอบที่ถูกต้อง
         trueChoiceAnInt = random.nextInt(4) + 1;
         Log.d("4janV1", "ข้อที่ถูก ==> " + trueChoiceAnInt);
         timeAnInt = 30;
@@ -104,6 +111,14 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
         for (int i = 0; i < textViews.length; i++) {
             textViews[i].setText(Integer.toString(random.nextInt(100)));
         }
+
+        //สร้าง ช้อย ใกล้เคียง
+        textViews[0].setText(Integer.toString(answerAnInt + 10));
+        textViews[1].setText(Integer.toString(answerAnInt - 10));
+        textViews[2].setText(Integer.toString(answerAnInt - 2));
+        textViews[3].setText(Integer.toString(answerAnInt + 2));
+
+
 
         switch (trueChoiceAnInt) {
             case 1:
@@ -122,9 +137,6 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
                 ch1TextView.setText(Integer.toString(answerAnInt));
                 break;
         }   // switch
-
-
-
 
     }// playController
 
@@ -151,8 +163,6 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
 
     }   // onClick
 
-
-
     private void checkAnswer(int intChoice) {
         Log.d("3decV1", "You Choose Answer ==> " + intChoice);
 
@@ -171,26 +181,32 @@ public class Play7Activity extends AppCompatActivity implements View.OnClickList
         for (int i=0;i<imageViews.length;i++){
             imageViews [i].setVisibility(View.INVISIBLE);
 
+
         } //for
-        if (scoreAnInt <4) {
+        if (scoreAnInt <3) {
             imageViews[0].setVisibility(View.VISIBLE);
-        } else if (scoreAnInt <8) {
+        } else if (scoreAnInt < 6) {
             imageViews[1].setVisibility(View.VISIBLE);
-        } else if (scoreAnInt <12) {
+        } else if (scoreAnInt <9) {
             imageViews[2].setVisibility(View.VISIBLE);
-        } else if (scoreAnInt <16) {
+        } else if (scoreAnInt <12) {
             imageViews[3].setVisibility(View.VISIBLE);
-        } else if (scoreAnInt <20) {
+        } else if (scoreAnInt <15) {
             imageViews[4].setVisibility(View.VISIBLE);
+        } else if (scoreAnInt < 18) {
+            imageViews[5].setVisibility(View.VISIBLE);
+        } else {
+            imageViews[6].setVisibility(View.VISIBLE);
 
-            MyAlert myAlert = new MyAlert(Play7Activity.this, "ผ่านด่านที่ 7", "ยินดีด้วยผ่านด่านที่ 7 แล้ว", Play8Activity.class);
+            //เฉพาะกิด
 
+            MyAlert myAlert = new MyAlert(Play7Activity.this,
+                    "ผ่านด่านที่ 7 ", "ยินดีด้วยผ่านด่านที่ 7 แล้ว", Play8Activity.class);
             myAlert.myDialog();
 
         }
 
     }  //checkanser
-
 
 
     private void deleteHeard() {
