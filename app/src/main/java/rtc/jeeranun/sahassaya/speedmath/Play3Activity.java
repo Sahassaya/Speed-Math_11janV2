@@ -145,6 +145,7 @@ public class Play3Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
 
 
+
         switch (view.getId()) {
             case R.id.textView18:
                 checkAnswer(Integer.parseInt(ch1TextView.getText().toString()));
