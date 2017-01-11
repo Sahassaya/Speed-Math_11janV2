@@ -214,6 +214,7 @@ public class Play8Activity extends AppCompatActivity implements View.OnClickList
             imageViews[6].setVisibility(View.VISIBLE);
 
             //เฉพาะกิด
+            aBoolean = false;
 
             MyAlert myAlert = new MyAlert(Play8Activity.this,
                     "ผ่านด่านที่ 4", "ยินดีด้วยผ่านด่านที่ 4 แล้ว", SuccessGame.class);
@@ -225,6 +226,8 @@ public class Play8Activity extends AppCompatActivity implements View.OnClickList
 
 
     private void deleteHeard() {
+
+        aBoolean = false;
 
 
         ImageView[] imageViews = new ImageView[]
