@@ -208,6 +208,8 @@ public class Play2Activity extends AppCompatActivity implements View.OnClickList
 
             //เฉพาะกิด
 
+            aBoolean = false;
+
             MyAlert myAlert = new MyAlert(Play2Activity.this,
                     "ผ่านด่านที่ 1", "ยินดีด้วยผ่านด่านที่ 2 แล้ว", Play3Activity.class);
             myAlert.myDialog();
@@ -218,6 +220,8 @@ public class Play2Activity extends AppCompatActivity implements View.OnClickList
 
 
     private void deleteHeard() {
+
+        aBoolean = false;
 
 
         ImageView[] imageViews = new ImageView[]

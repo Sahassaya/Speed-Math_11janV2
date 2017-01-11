@@ -36,6 +36,7 @@ public class ShowScore extends AppCompatActivity implements View.OnClickListener
         switch (view.getId()) {
             case R.id.imageView12:
                 startActivity(new Intent(ShowScore.this,PlayActivity.class));
+                finish();
                 break;
             case R.id.imageView13:
                 finish();

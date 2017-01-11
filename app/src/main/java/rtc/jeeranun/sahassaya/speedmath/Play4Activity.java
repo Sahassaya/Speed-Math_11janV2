@@ -215,6 +215,8 @@ public class Play4Activity extends AppCompatActivity implements View.OnClickList
 
             //เฉพาะกิด
 
+            aBoolean = false;
+
             MyAlert myAlert = new MyAlert(Play4Activity.this,
                     "ผ่านด่านที่ 4", "ยินดีด้วยผ่านด่านที่ 4 แล้ว", Play5Activity.class);
             myAlert.myDialog();
@@ -225,6 +227,8 @@ public class Play4Activity extends AppCompatActivity implements View.OnClickList
 
 
     private void deleteHeard() {
+
+        aBoolean = false;
 
 
         ImageView[] imageViews = new ImageView[]
