@@ -191,7 +191,7 @@ public class Play2Activity extends AppCompatActivity implements View.OnClickList
             imageViews[3].setVisibility(View.VISIBLE);
         } else if (scoreAnInt <15) {
             imageViews[4].setVisibility(View.VISIBLE);
-        } else if (scoreAnInt < 18) {
+        } else if (scoreAnInt < 20) {
             imageViews[5].setVisibility(View.VISIBLE);
         } else {
             imageViews[6].setVisibility(View.VISIBLE);
