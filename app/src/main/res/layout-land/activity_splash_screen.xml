@@ -9,12 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="rtc.jeeranun.sahassaya.speedmath.SplashScreen">
+    tools:context="rtc.jeeranun.sahassaya.speedmath.SplashScreen"
+    android:background="@drawable/bgscreen1">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/katai"
-        android:id="@+id/imageView27"
-        android:layout_centerInParent="true" />
 </RelativeLayout>

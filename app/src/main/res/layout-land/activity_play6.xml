@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/rabbit"
         android:id="@+id/imageView45"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="5dp"
         android:visibility="visible"
         android:layout_below="@+id/imageView46"
         android:layout_alignParentLeft="true"
@@ -29,8 +29,8 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/rabbit"
         android:id="@+id/imageView47sp2"
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="120dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -38,8 +38,8 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/rabbit"
         android:id="@+id/imageView46"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="130dp"
+        android:layout_marginTop="158dp"
+        android:layout_marginLeft="200dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -48,8 +48,8 @@
         app:srcCompat="@drawable/rabbit"
         android:id="@+id/imageView47"
         android:visibility="invisible"
-        android:layout_marginTop="200dp"
-        android:layout_marginLeft="200dp" />
+        android:layout_marginTop="158dp"
+        android:layout_marginLeft="270dp" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
         app:srcCompat="@drawable/rabbit"
         android:id="@+id/imageView47sp1"
         android:layout_marginTop="158dp"
-        android:layout_marginLeft="270dp"
+        android:layout_marginLeft="330dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -65,8 +65,8 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/rabbit"
         android:id="@+id/imageView48"
-        android:layout_marginTop="158dp"
-        android:layout_marginLeft="320dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="400dp"
         android:visibility="invisible" />
 
     <ImageView
@@ -75,7 +75,7 @@
         app:srcCompat="@drawable/rabbit"
         android:id="@+id/imageView49"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="440dp"
+        android:layout_marginLeft="460dp"
         android:visibility="invisible" />
 
     <TextView
